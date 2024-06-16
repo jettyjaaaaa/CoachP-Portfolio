@@ -15,20 +15,23 @@
   <header id="header">
     <div class="container">
       <nav>
+        <div class="logo">
+          Coach P
+        </div>
         <ul id="sidemenu">
-          <li><a href="#header">หน้าหลัก</a></li>
-          <li><a href="#about">ประวัติการสอน</a></li>
-          <li><a href="#working">ผลงาน</a></li>
-          <li><a href="#contact">ติดต่อ</a></li>
+          <li><a href="#header" class="nav-link">หน้าหลัก</a></li>
+          <li><a href="#about" class="nav-link">ประวัติการสอน</a></li>
+          <li><a href="#working" class="nav-link">ผลงาน</a></li>
+          <li><a href="#contact" class="nav-link">ติดต่อ</a></li>
           <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
         </ul>
         <i class="fa-solid fa-bars" onclick="openmenu()"></i>
       </nav>
       <div class="header-text">
         <h1>
-          <span class="coachp">Coach P</span>
+          <span class="coachp">COACH P</span>
           <br>
-          <span class="surname">Peera Jinnarat</span>
+          <span class="surname">PEERA JINNARAT</span>
         </h1>
       </div>
     </div>
@@ -158,5 +161,23 @@
 
   <script src="/src/script.js"></script>
   <script src="/src/scroll.js"></script> <!-- Add this line -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section');
+
+      function changeActiveLink() {
+        let index = sections.length;
+
+        while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+        navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+      }
+
+      changeActiveLink();
+      window.addEventListener('scroll', changeActiveLink);
+    });
+  </script>
 </body>
 </html>
