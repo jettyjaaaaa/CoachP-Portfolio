@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // For the 'ผลงาน' section
     const tablinks1 = document.getElementsByClassName("tab-links1");
     const tabcontents1 = document.getElementsByClassName("tab-contents1");
 

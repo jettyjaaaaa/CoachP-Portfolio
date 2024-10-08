@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section');
-    const options = {
-        threshold: 0.5
-    };
+    const options = { threshold: 0.5 };
 
-    const observer = new IntersectionObserver(function(entries, observer) {
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                window.history.pushState({}, '', '#' + entry.target.id);
-                entry.target.scrollIntoView({ behavior: 'smooth' });
+                const sectionId = entry.target.id;
+                if (window.location.hash !== `#${sectionId}`) {
+                    window.history.pushState({}, '', `#${sectionId}`);
+                }
             }
         });
     }, options);
